@@ -1,6 +1,7 @@
 import "./App.css";
 import { useState } from "react";
 import bakeryData from "./assets/bakery-data.json";
+import finalBakeryData from "./assets/bakery-copy.json";
 import * as React from 'react';
 import FormGroup from '@mui/material/FormGroup';
 import FormControlLabel from '@mui/material/FormControlLabel';
@@ -24,7 +25,8 @@ function App() {
   const [cartMap, setCartMap] = useState({});
   const [breadFilter, setBreadFilter] = useState(false);
   const [pastryFilter, setPastryFilter] = useState(false);
-  const [currentItems, setCurrentItems] = useState(bakeryData);
+  let bakeryList = bakeryData;
+  const [currentItems, setCurrentItems] = useState(bakeryList);
   let currBread = breadFilter;
   let currPastry = pastryFilter;
   const [sort, setSort] = useState("price");
@@ -94,6 +96,7 @@ function App() {
 
   if (sort == "price") {
     currentItems.sort((a,b) => a.price - b.price);
+    console.log(finalBakeryData);
   }
 
   return (
@@ -105,7 +108,7 @@ function App() {
       <FormControlLabel control={<Checkbox onChange={breadChange}/>} label="Bread" />
 
       <FormControl>
-        <FormLabel id="demo-radio-buttons-group-label">Gender</FormLabel>
+        <FormLabel id="demo-radio-buttons-group-label">Sort By</FormLabel>
         <RadioGroup
         aria-labelledby="demo-radio-buttons-group-label"
         defaultValue="price"
@@ -113,14 +116,12 @@ function App() {
         onChange={sortChange}
         >
         <FormControlLabel value="price" control={<Radio />} label="Price" />
-        <FormControlLabel value="male" control={<Radio />} label="Male" />
-        <FormControlLabel value="other" control={<Radio />} label="Other" />
         </RadioGroup>
       </FormControl>
       
-      {currentItems.map((item, index) => {
+      {currentItems.map((item) => {
         return (<BakeryItem cartMap={cartMap} setCart={setCart} setTotalPrice={setTotalPrice} item={item} 
-          index={index} currPrice={totalPrice} removeFromCart={removeFromCart}/>)})
+          currPrice={totalPrice} removeFromCart={removeFromCart}/>)})
         }
 
       <div>
@@ -128,7 +129,7 @@ function App() {
         {Object.keys(cartMap).map((key) =>{
         return(
           <div>
-            {cartMap[key] + "x " + bakeryData[key].name}
+            {cartMap[key] + "x " + finalBakeryData[key].name}
           </div>
         )})}
         {/* TODO: render a list of items in the cart */}

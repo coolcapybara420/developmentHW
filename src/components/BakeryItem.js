@@ -1,7 +1,7 @@
 import "../styles/BakeryItem.css";
 
 export default function BakeryItem(props) {
-    if (props.index in props.cartMap) {
+    if (props.item.id in props.cartMap) {
         return (
             <div class="BakeryItem">
                 <img src={props.item.image}></img>
@@ -10,8 +10,8 @@ export default function BakeryItem(props) {
                 </h2> <br></br>
                 <p>{props.item.description}</p>
                 <p>{props.item.price}</p>
-                <button onClick={() => {props.setTotalPrice(props.currPrice + props.item.price); props.setCart(props.index);}}>Add to Cart</button>
-                <button onClick={() => {props.setTotalPrice(props.currPrice - props.item.price); props.removeFromCart(props.index);}}>Remove from Cart</button>
+                <button onClick={() => {props.setTotalPrice(props.currPrice + props.item.price); props.setCart(props.item.id);}}>Add to Cart</button>
+                <button onClick={() => {props.setTotalPrice(props.currPrice - props.item.price); props.removeFromCart(props.item.id);}}>Remove from Cart</button>
             </div>
         );
     } else {
@@ -23,7 +23,7 @@ export default function BakeryItem(props) {
             </h2> <br></br>
             <p>{props.item.description}</p>
             <p>{props.item.price}</p>
-            <button onClick={() => {props.setTotalPrice(props.currPrice + props.item.price); props.setCart(props.index);}}>Add to Cart</button>
+            <button onClick={() => {props.setTotalPrice(props.currPrice + props.item.price); props.setCart(props.item.id);}}>Add to Cart</button>
         </div>
     );
     }
