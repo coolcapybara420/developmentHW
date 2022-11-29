@@ -3,15 +3,16 @@ import { useState } from "react";
 import bakeryData from "./assets/bakery-data.json";
 import finalBakeryData from "./assets/bakery-copy.json";
 import * as React from 'react';
-import FormGroup from '@mui/material/FormGroup';
 import FormControlLabel from '@mui/material/FormControlLabel';
 import Checkbox from '@mui/material/Checkbox';
-import BakeryItem from './components/BakeryItem';
 import Radio from '@mui/material/Radio';
 import RadioGroup from '@mui/material/RadioGroup';
 import FormControl from '@mui/material/FormControl';
 import FormLabel from '@mui/material/FormLabel';
 import Button from '@mui/material/Button';
+import BakeryItem from "./components/BakeryItem";
+import FormHelperText from '@mui/material/FormHelperText';
+import FormGroup from '@mui/material/FormGroup';
 
 /* ####### DO NOT TOUCH -- this makes the image URLs work ####### */
 bakeryData.forEach((item) => {
@@ -26,10 +27,20 @@ function App() {
   const [cartMap, setCartMap] = useState({});
   const [breadFilter, setBreadFilter] = useState(false);
   const [pastryFilter, setPastryFilter] = useState(false);
+  const [frenchFilter, setFrenchFilter] = useState(false);
+  const [asianFilter, setAsianFilter] = useState(false);
+  const [usaFilter, setUsaFilter] = useState(false);
+  const [italyFilter, setItalyFilter] = useState(false);
   let bakeryList = bakeryData;
   const [currentItems, setCurrentItems] = useState(bakeryList);
+
   let currBread = breadFilter;
   let currPastry = pastryFilter;
+  let france = frenchFilter;
+  let asia = asianFilter;
+  let usa = usaFilter;
+  let italy = italyFilter;
+
   const [sort, setSort] = useState("price");
   function setCart(index) {
     let newCart = cartMap;
@@ -65,28 +76,54 @@ function App() {
     setCurrentItems(filteredData);
   }
 
+  const usaChange = (event) => {
+    setUsaFilter(event.target.checked);
+    usa = event.target.checked;
+    const filteredData = bakeryData.filter(matchesFilterType);
+    setCurrentItems(filteredData);
+  }
+
+  const franceChange = (event) => {
+    setFrenchFilter(event.target.checked);
+    france = event.target.checked;
+    const filteredData = bakeryData.filter(matchesFilterType);
+    setCurrentItems(filteredData);
+  }
+
+  const asiaChange = (event) => {
+    setAsianFilter(event.target.checked);
+    asia = event.target.checked;
+    const filteredData = bakeryData.filter(matchesFilterType);
+    setCurrentItems(filteredData);
+  }
+
+  const italyChange = (event) => {
+    setItalyFilter(event.target.checked);
+    italy = event.target.checked;
+    const filteredData = bakeryData.filter(matchesFilterType);
+    setCurrentItems(filteredData);
+  }
+
   const matchesFilterType = item => {
-    if (currPastry && !currBread) {
-      if (item.type == "pastry") {
-        return true;
-      } else {
-        return false;
-      }
-    } else if (!currPastry && currBread) {
-      if (item.type == "bread") {
-        return true;
-      } else {
-        return false;
-      }
-    } else if (currBread && currPastry) {
-      if (item.type == "bread" && item.type == "pastry") {
-        return true;
-      } else {
-        return false;
-      }
-    } else {
-      return true;
+    if (currPastry && item.type != "pastry") {
+      return false;
     }
+    if (currBread && item.type != "bread") {
+      return false;
+    }
+    if (france && item.cuisine != "french") {
+      return false;
+    }
+    if (usa && item.cuisine != "american") {
+      return false;
+    }
+    if (asia && item.cuisine != "asian") {
+      return false;
+    }
+    if (italy && item.cuisine != "italian") {
+      return false;
+    }
+    return true;
   }
 
   const sortChange = (event) => {
@@ -102,6 +139,14 @@ function App() {
     setPastryFilter(false);
     currBread = false;
     currPastry = false;
+    setAsianFilter(false);
+    setUsaFilter(false);
+    setFrenchFilter(false);
+    setItalyFilter(false);
+    italy = false;
+    usa = false;
+    asia = false;
+    france = false;
     const filteredData = bakeryData.filter(matchesFilterType);
     setCurrentItems(filteredData);
   }
@@ -110,9 +155,23 @@ function App() {
     <div className="App">
       <h1>My Bakery</h1> {/* TODO: personalize your bakery (if you want) */}
 
-      
+      <FormControl sx={{ m: 3 }} component="fieldset" variant="standard">
+      <FormLabel component="legend">Type</FormLabel>
+      <FormGroup>
       <FormControlLabel control={<Checkbox checked={pastryFilter} onChange={pastryChange}/>} label="Pastry" />
       <FormControlLabel control={<Checkbox checked={breadFilter} onChange={breadChange}/>} label="Bread" />
+      </FormGroup>
+      </FormControl>
+
+      <FormControl sx={{ m: 3 }} component="fieldset" variant="standard">
+      <FormLabel component="legend">Cuisine</FormLabel>
+      <FormGroup>
+      <FormControlLabel control={<Checkbox checked={usaFilter} onChange={usaChange}/>} label="American" />
+      <FormControlLabel control={<Checkbox checked={asianFilter} onChange={asiaChange}/>} label="Asian" />
+      <FormControlLabel control={<Checkbox checked={frenchFilter} onChange={franceChange}/>} label="French" />
+      <FormControlLabel control={<Checkbox checked={italyFilter} onChange={italyChange}/>} label="Italian" />
+      </FormGroup>
+      </FormControl>
 
       <FormControl>
         <FormLabel id="demo-radio-buttons-group-label">Sort By</FormLabel>

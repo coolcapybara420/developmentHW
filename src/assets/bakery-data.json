@@ -1,123 +1,137 @@
 [
-    {
-      "name": "Chocolate Chip Cookies",
-      "id": 0,
-      "description": "Four classic chocolate chip cookies",
-      "price": 7.99,
-      "image": "images/anika.png",
-      "type": "pastry"
-    },
-    {
-      "name": "Matcha Mille Crepe Cake",
-      "id": 1,
-      "description": "Layers of matcha crepe and matcha cream filling, topped with strawberries",
-      "price": 4.99,
-      "image": "images/aubrey.png",
-      "type": "cake"
-    },
-    {
-      "name": "Egg Custard Bun",
-      "id": 2,
-      "description": "A fluffy steamed bun with a savory egg filling",
-      "price": 2.99,
-      "image": "images/connie.png",
-      "type": "bun"
-    },
-    {
-      "name": "Steamed Taro Buns",
-      "id": 3,
-      "description": "Two soft steamed buns filled with gooey purple taro filling",
-      "price": 5.99,
-      "image": "images/dylan.png",
-      "type": "bun"
-    },
-    {
-      "name": "Chocolate Fudge Brownie",
-      "id": 4,
-      "description": "A rich fudge brownie drizzled with chocolate ganache",
-      "price": 3.99,
-      "image": "images/isaac.png",
-      "type": "pastry"
-    },
-    {
-      "name": "Macarons",
-      "id": 5,
-      "description": "A box of three macarons in assorted flavors",
-      "price": 4.99,
-      "image": "images/jeff.png",
-      "type": "pastry"
-    },
-    {
-      "name": "Multigrain Bread",
-      "id": 6,
-      "description": "A loaf of fresh-baked multigrain bread",
-      "price": 4.99,
-      "image": "images/jenny.png",
-      "type": "bread"
-    },
-    {
-      "name": "Croissant",
-      "id": 7,
-      "description": "A classic butter croissant with a flaky crust",
-      "price": 2.99,
-      "image": "images/jessie.png",
-      "type": "pastry"
-    },
-    {
-      "name": "Toast with Butter",
-      "id": 8,
-      "description": "A slice of toast with a pat of butter",
-      "price": 1.99,
-      "image": "images/kelly.png",
-      "type": "bread"
-    },
-    {
-      "name": "Tiramisu",
-      "id": 9,
-      "description": "A classic tiramisu with layers of coffee-soaked ladyfingers and mascarpone cream",
-      "price": 3.99,
-      "image": "images/lauren.png",
-      "type": "cake"
-    },
-    {
-      "name": "Egg Tart",
-      "id": 10,
-      "description": "A flaky pastry shell filled with a sweet egg custard",
-      "price": 2.99,
-      "image": "images/melissa.png",
-      "type": "pastry"
-    },
-    {
-      "name": "Everything Bagel",
-      "id": 11,
-      "description": "A toasted bagel with sesame seeds, poppy seeds, and dried onion",
-      "price": 2.99,
-      "image": "images/miku.png",
-      "type": "bagel"
-    },
-    {
-      "name": "Gingerbread Man",
-      "id": 12,
-      "description": "A soft gingerbread cookie with a sweet icing glaze",
-      "price": 2.99,
-      "image": "images/nick.png",
-      "type": "pastry"
-    },
-    {
-      "name": "Cheesecake",
-      "id": 13,
-      "description": "A slice of classic New York cheesecake topped with strawberry",
-      "price": 3.99,
-      "image": "images/sunny.png",
-      "type": "cake"
-    },
-    {
-      "name": "Cream Puff",
-      "id": 14,
-      "description": "Light and airy pâte à choux filled with sweet whipped cream",
-      "price": 2.99,
-      "image": "images/tongyu.png",
-      "type": "pastry"
-    }
-  ]
-  
+  {
+    "name": "Chocolate Chip Cookies",
+    "id": 0,
+    "description": "Four classic chocolate chip cookies",
+    "price": 7.99,
+    "image": "images/anika.png",
+    "type": "pastry",
+    "cuisine": "american"
+  },
+  {
+    "name": "Matcha Mille Crepe Cake",
+    "id": 1,
+    "description": "Layers of matcha crepe and matcha cream filling, topped with strawberries",
+    "price": 4.99,
+    "image": "images/aubrey.png",
+    "type": "cake",
+    "country": "french"
+  },
+  {
+    "name": "Egg Custard Bun",
+    "id": 2,
+    "description": "A fluffy steamed bun with a savory egg filling",
+    "price": 2.99,
+    "image": "images/connie.png",
+    "type": "bun",
+    "cuisine": "asian"
+  },
+  {
+    "name": "Steamed Taro Buns",
+    "id": 3,
+    "description": "Two soft steamed buns filled with gooey purple taro filling",
+    "price": 5.99,
+    "image": "images/dylan.png",
+    "type": "bun",
+    "cuisine": "asian"
+  },
+  {
+    "name": "Chocolate Fudge Brownie",
+    "id": 4,
+    "description": "A rich fudge brownie drizzled with chocolate ganache",
+    "price": 3.99,
+    "image": "images/isaac.png",
+    "type": "pastry",
+    "cuisine": "american"
+  },
+  {
+    "name": "Macarons",
+    "id": 5,
+    "description": "A box of three macarons in assorted flavors",
+    "price": 4.99,
+    "image": "images/jeff.png",
+    "type": "pastry",
+    "cuisine": "french"
+  },
+  {
+    "name": "Multigrain Bread",
+    "id": 6,
+    "description": "A loaf of fresh-baked multigrain bread",
+    "price": 4.99,
+    "image": "images/jenny.png",
+    "type": "bread",
+    "cuisine": "american"
+  },
+  {
+    "name": "Croissant",
+    "id": 7,
+    "description": "A classic butter croissant with a flaky crust",
+    "price": 2.99,
+    "image": "images/jessie.png",
+    "type": "pastry",
+    "cuisine": "french"
+  },
+  {
+    "name": "Toast with Butter",
+    "id": 8,
+    "description": "A slice of toast with a pat of butter",
+    "price": 1.99,
+    "image": "images/kelly.png",
+    "type": "bread",
+    "cuisine": "american"
+  },
+  {
+    "name": "Tiramisu",
+    "id": 9,
+    "description": "A classic tiramisu with layers of coffee-soaked ladyfingers and mascarpone cream",
+    "price": 3.99,
+    "image": "images/lauren.png",
+    "type": "cake",
+    "cuisine": "italian"
+  },
+  {
+    "name": "Egg Tart",
+    "id": 10,
+    "description": "A flaky pastry shell filled with a sweet egg custard",
+    "price": 2.99,
+    "image": "images/melissa.png",
+    "type": "pastry",
+    "cuisine": "asian"
+  },
+  {
+    "name": "Everything Bagel",
+    "id": 11,
+    "description": "A toasted bagel with sesame seeds, poppy seeds, and dried onion",
+    "price": 2.99,
+    "image": "images/miku.png",
+    "type": "bagel",
+    "cuisine": "american"
+  },
+  {
+    "name": "Gingerbread Man",
+    "id": 12,
+    "description": "A soft gingerbread cookie with a sweet icing glaze",
+    "price": 2.99,
+    "image": "images/nick.png",
+    "type": "pastry",
+    "cuisine": "american"
+  },
+  {
+    "name": "Cheesecake",
+    "id": 13,
+    "description": "A slice of classic New York cheesecake topped with strawberry",
+    "price": 3.99,
+    "image": "images/sunny.png",
+    "type": "cake",
+    "cuisine":"american"
+  },
+  {
+    "name": "Cream Puff",
+    "id": 14,
+    "description": "Light and airy pâte à choux filled with sweet whipped cream",
+    "price": 2.99,
+    "image": "images/tongyu.png",
+    "type": "pastry",
+    "cuisine": "french"
+  }
+]

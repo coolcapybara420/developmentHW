@@ -7,11 +7,15 @@ export default function BakeryItem(props) {
                 <img src={props.item.image}></img>
                 <h2>
                 {props.item.name}
-                </h2> <br></br>
+                </h2> 
                 <p>{props.item.description}</p>
+                <p>Type: {props.item.type}</p>
+                <p>{props.item.cuisine}</p>
                 <p>{props.item.price}</p>
-                <button onClick={() => {props.setTotalPrice(props.currPrice + props.item.price); props.setCart(props.item.id);}}>Add to Cart</button>
-                <button onClick={() => {props.setTotalPrice(props.currPrice - props.item.price); props.removeFromCart(props.item.id);}}>Remove from Cart</button>
+                <div id="button-container">
+                    <button onClick={() => {props.setTotalPrice(props.currPrice + props.item.price); props.setCart(props.item.id);}}>Add to Cart</button>
+                    <button onClick={() => {props.setTotalPrice(props.currPrice - props.item.price); props.removeFromCart(props.item.id);}}>Remove from Cart</button>
+                </div>
             </div>
         );
     } else {
@@ -22,8 +26,12 @@ export default function BakeryItem(props) {
             {props.item.name}
             </h2> <br></br>
             <p>{props.item.description}</p>
+            <p>Type: {props.item.type}</p>
+            <p>{props.item.cuisine}</p>
             <p>{props.item.price}</p>
-            <button onClick={() => {props.setTotalPrice(props.currPrice + props.item.price); props.setCart(props.item.id);}}>Add to Cart</button>
+            <div id="button-container">
+                <button onClick={() => {props.setTotalPrice(props.currPrice + props.item.price); props.setCart(props.item.id);}}>Add to Cart</button>
+            </div>
         </div>
     );
     }
