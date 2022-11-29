@@ -11,6 +11,7 @@ import Radio from '@mui/material/Radio';
 import RadioGroup from '@mui/material/RadioGroup';
 import FormControl from '@mui/material/FormControl';
 import FormLabel from '@mui/material/FormLabel';
+import Button from '@mui/material/Button';
 
 /* ####### DO NOT TOUCH -- this makes the image URLs work ####### */
 bakeryData.forEach((item) => {
@@ -38,7 +39,6 @@ function App() {
       newCart[index] = 1;
     }
     setCartMap(newCart);
-    console.log(newCart);
   }
 
   function removeFromCart(index) {
@@ -49,7 +49,6 @@ function App() {
       delete newCart[index];
     }
     setCartMap(newCart);
-    console.log(newCart);
   }
 
   const pastryChange = (event) => {
@@ -96,7 +95,15 @@ function App() {
 
   if (sort == "price") {
     currentItems.sort((a,b) => a.price - b.price);
-    console.log(finalBakeryData);
+  }
+
+  function handleClick() {
+    setBreadFilter(false);
+    setPastryFilter(false);
+    currBread = false;
+    currPastry = false;
+    const filteredData = bakeryData.filter(matchesFilterType);
+    setCurrentItems(filteredData);
   }
 
   return (
@@ -104,8 +111,8 @@ function App() {
       <h1>My Bakery</h1> {/* TODO: personalize your bakery (if you want) */}
 
       
-      <FormControlLabel control={<Checkbox onChange={pastryChange}/>} label="Pastry" />
-      <FormControlLabel control={<Checkbox onChange={breadChange}/>} label="Bread" />
+      <FormControlLabel control={<Checkbox checked={pastryFilter} onChange={pastryChange}/>} label="Pastry" />
+      <FormControlLabel control={<Checkbox checked={breadFilter} onChange={breadChange}/>} label="Bread" />
 
       <FormControl>
         <FormLabel id="demo-radio-buttons-group-label">Sort By</FormLabel>
@@ -118,12 +125,18 @@ function App() {
         <FormControlLabel value="price" control={<Radio />} label="Price" />
         </RadioGroup>
       </FormControl>
-      
+
+      <Button 
+        onClick={() => {
+          handleClick()
+        }}
+        variant="outlined">Reset Filters</Button>
+      <div class="bakery-flex">
       {currentItems.map((item) => {
         return (<BakeryItem cartMap={cartMap} setCart={setCart} setTotalPrice={setTotalPrice} item={item} 
           currPrice={totalPrice} removeFromCart={removeFromCart}/>)})
         }
-
+      </div>
       <div>
         <h2>Cart</h2>
         {Object.keys(cartMap).map((key) =>{

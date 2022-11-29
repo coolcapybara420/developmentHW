@@ -1,3 +1,4 @@
-.BakeryItem {
-    
+.BakeryItem img {
+    padding: 10px;
+    max-width: 50%;
 }
