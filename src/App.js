@@ -14,6 +14,17 @@ import BakeryItem from "./components/BakeryItem";
 import FormHelperText from '@mui/material/FormHelperText';
 import FormGroup from '@mui/material/FormGroup';
 
+import dayjs, { Dayjs } from 'dayjs';
+import Stack from '@mui/material/Stack';
+import TextField from '@mui/material/TextField';
+import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
+import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
+import { TimePicker } from '@mui/x-date-pickers/TimePicker';
+import { DateTimePicker } from '@mui/x-date-pickers/DateTimePicker';
+import { DesktopDatePicker } from '@mui/x-date-pickers/DesktopDatePicker';
+import { MobileDatePicker } from '@mui/x-date-pickers/MobileDatePicker';
+
+
 /* ####### DO NOT TOUCH -- this makes the image URLs work ####### */
 bakeryData.forEach((item) => {
   item.image = process.env.PUBLIC_URL + "/" + item.image;
@@ -153,7 +164,7 @@ function App() {
 
   return (
     <div className="App">
-      <h1>My Bakery</h1> {/* TODO: personalize your bakery (if you want) */}
+      <h1>My Bakery check</h1> {/* TODO: personalize your bakery (if you want) */}
 
       <FormControl sx={{ m: 3 }} component="fieldset" variant="standard">
       <FormLabel component="legend">Type</FormLabel>
@@ -199,7 +210,7 @@ function App() {
       <div>
         <h2>Cart</h2>
         {Object.keys(cartMap).map((key) =>{
-        return(
+         return(
           <div>
             {cartMap[key] + "x " + finalBakeryData[key].name}
           </div>
@@ -209,6 +220,9 @@ function App() {
       </div>
     </div>
   );
+
+  
+
 }
 
 export default App;
